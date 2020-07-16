@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>rock, paper, scissors</title>
+    </head>
+    <body>
+        <script>
+
+                let playerPoints = 0;
+                let pcPoints = 0;
+
+                function game(){
+
+                let playerMove = prompt("Choose:").toLowerCase();
+                while(playerMove !== "rock" && playerMove !== "paper" && playerMove !== "scissors"){
+                    playerMove = prompt("Choose");
+                }
+                console.log(playerMove);
+
+                let pcMove = Math.floor(Math.random() * 3) + 1;
+                switch(pcMove){
+
+                    case 1:
+                    console.log("rock");
+                    break;
+
+                    case 2:
+                    console.log("paper");            
+                    break;
+
+                    case 3:
+                    console.log("scissors");          
+                    break;
+                }
+
+                if((playerMove == "rock" && pcMove == "1") || (playerMove == "paper" && pcMove == "2") || (playerMove == "scissors" && pcMove == "3")){
+                    console.log("Tie");
+                }
+
+                else if((pcMove == "1" && playerMove == "scissors") || (pcMove == "2" && playerMove == "rock") || (pcMove == "3" && playerMove == "paper")){
+                console.log("PC Wins")
+                pcPoints++;
+                console.log("Player: " + playerPoints + " PC: " + pcPoints);
+               
+                }
+
+                else if((pcMove == "1" && playerMove == "paper") || (pcMove == "2" && playerMove == "scissors") || (pcMove == "3" && playerMove == "rock")){
+                console.log("Player Wins")
+                playerPoints++;
+                console.log("Player: " + playerPoints + " PC: " + pcPoints);
+                }
+                }
+
+                function winner(){
+                if(playerPoints > pcPoints){
+                    console.log("Player wins the game!")
+                }
+                else if(playerPoints < pcPoints){
+                    console.log("PC wins the game!")
+                }
+                else{
+                    console.log("It's a tie!")
+                }
+                }
+
+                for(i = 0; i < 3; i++){
+                    game();
+                }
+
+                winner();
+
+        </script>
+    </body>
+</html>
